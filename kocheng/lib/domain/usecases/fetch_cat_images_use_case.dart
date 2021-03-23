@@ -1,4 +1,4 @@
-import 'package:kocheng/data/repositories/cat_repository.dart';
+import 'package:kocheng/domain/interface/cat_repository_type.dart';
 import 'package:kocheng/utils/result.dart';
 
 abstract class FetchCatImagesUseCaseType {
@@ -7,7 +7,7 @@ abstract class FetchCatImagesUseCaseType {
 
 class FetchCatImagesUseCase implements FetchCatImagesUseCaseType {
 
-  final CatRepository _catRepository;
+  final CatRepositoryType _catRepository;
 
   FetchCatImagesUseCase(this._catRepository);
 
