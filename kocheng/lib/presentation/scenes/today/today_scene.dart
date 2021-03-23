@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kocheng/data/repositories/cat_repository.dart';
 import 'package:kocheng/domain/usecases/fetch_cat_images_use_case.dart';
+import 'package:kocheng/presentation/scenes/search/search_scene.dart';
 import 'package:kocheng/presentation/scenes/today/today_bloc.dart';
 
 class TodayScene extends StatefulWidget {
@@ -36,6 +37,13 @@ class _TodaySceneState extends State<TodayScene> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Today\'s Cat'),
+        actions: [
+          IconButton(icon: Icon(Icons.search), onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return SearchScene();
+            },));
+          },)
+        ],
       ),
       body: imageUrl == '' ? Container() :
       GestureDetector(
