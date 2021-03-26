@@ -26,9 +26,11 @@ List<Cat> cats = [
 void main() {
   test('Fetch cat images success test', () async {
 
+    // given
     final repository = CatRepositoryMock(result: Result.success(cats));
     final useCase = FetchCatImagesUseCase(repository);
 
+    // when
     final result = await useCase.execute();
     bool isSuccess = false;
 
@@ -40,14 +42,17 @@ void main() {
       isSuccess = false;
     }
 
+    // then
     expect(true, isSuccess);
   });
 
   test('Fetch cat images failure test', () async {
 
+    // given
     final repository = CatRepositoryMock(result: Result.error('Error when fetch cat'));
     final useCase = FetchCatImagesUseCase(repository);
 
+    // when
     final result = await useCase.execute();
     bool isSuccess = false;
 
@@ -59,6 +64,7 @@ void main() {
       isSuccess = false;
     }
 
+    // then
     expect(false, isSuccess);
   });
 }
